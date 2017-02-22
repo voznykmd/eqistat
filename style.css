@@ -1,0 +1,81 @@
+
+/*old*/
+body {
+font-family: 'Jura', sans-serif;
+}
+
+
+
+.triangle {
+	width: 0;
+	height: 0;
+	border-bottom: 30px solid rgba(0, 0, 0, 0.11);
+	border-left: 30px solid transparent;
+  float: right;
+}
+
+hr {
+  width: 5em;
+
+}
+
+.portfolio {
+  color: black;
+}
+
+.charts {
+  background-color: #eff2f5;
+}
+
+.menu {
+  background-color: #ffffff;
+}
+
+.top-bar {
+  background-color: #292b2c;
+}
+
+.chart-1 {
+  background-color: #fa424a;
+}
+
+.chart-2 {
+  background-color: #ac6bec;
+}
+
+.chart-3 {
+  background-color: #fdad2a;
+}
+
+.chart-4 {
+  background-color: #46c35f;
+}
+
+.chart-1,
+.chart-2,
+.chart-3,
+.chart-4 {
+  padding: 0;
+  padding-top: 30px;
+
+  color: #ffffff;
+}
+
+.big-diagramm,
+.chart-5,
+.chart-6 {
+  padding: 0;
+  padding-top: 30px;
+background-color: white;
+
+}
+
+#eqip-chart, #auto-chart, #it-chart, #buid-chart {
+  width: 100%;
+  min-height: 450px;
+}
+
+.cities,
+.districts {
+	min-height: 400px;
+}
