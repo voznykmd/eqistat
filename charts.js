@@ -3,7 +3,7 @@ google.charts.load('upcoming', {'packages': ['geochart']});
 
 
       google.charts.setOnLoadCallback(drawGID);
-
+google.charts.setOnLoadCallback(drawVisualization);
 
 
     function drawGID() {
@@ -82,7 +82,7 @@ chart1.draw(data1, options);
 //Exampless!!!
 
 
-google.charts.setOnLoadCallback(drawVisualization);
+
 
 
       function drawVisualization() {
