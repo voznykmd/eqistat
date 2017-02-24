@@ -30,6 +30,7 @@ google.charts.setOnLoadCallback(drawVisualization);
       $(window).resize(function(){
         drawGID();
         drawGID1();
+        drawVisualization();
       });
 
 
@@ -41,6 +42,30 @@ google.charts.setOnLoadCallback(drawVisualization);
             drawGID();
         });
 
+//Slideshow
+
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+          showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("myslides");
+
+          if (n > x.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = x.length}
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";
+          }
+          x[slideIndex-1].style.display = "block";
+        }
 
 //
 
@@ -77,13 +102,7 @@ var chart1 = new google.visualization.PieChart(document.getElementById('auto-cha
 chart1.draw(data1, options);
 }
 
-
-
 //Exampless!!!
-
-
-
-
 
       function drawVisualization() {
         // Some raw data (not necessarily accurate)

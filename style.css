@@ -16,6 +16,8 @@ font-family: 'Jura', sans-serif;
 
 hr {
   width: 5em;
+	margin-top: 0;
+	margin-bottom: 0;
 
 }
 
@@ -57,25 +59,27 @@ hr {
 .chart-4 {
   padding: 0;
   padding-top: 30px;
-
   color: #ffffff;
 }
 
 .big-diagramm,
 .chart-5,
 .chart-6 {
-  padding: 0;
-  padding-top: 30px;
+padding: 0;
 background-color: white;
-
 }
 
-#eqip-chart, #auto-chart, #it-chart, #buid-chart {
+.tab-pane {
   width: 100%;
   min-height: 450px;
 }
 
 .cities,
 .districts {
-	min-height: 400px;
+	min-height: 450px;
+}
+
+.mini-container {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
