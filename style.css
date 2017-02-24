@@ -62,9 +62,7 @@ hr {
   color: #ffffff;
 }
 
-.big-diagramm,
-.chart-5,
-.chart-6 {
+.big-diagramm {
 padding: 0;
 background-color: white;
 }
@@ -79,7 +77,13 @@ background-color: white;
 	min-height: 450px;
 }
 
-.mini-container {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.mini-container,
+.color-cards {
+-webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.28);
+-moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.28);
+box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.28);
+}
 
+.mini-container {
+	margin-top: 10px;
 }
