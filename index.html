@@ -1,12 +1,15 @@
-<html lang="en">
+<html lang="uk">
 
 <head>
     <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Jura|Poiret+One" rel="stylesheet">
@@ -22,16 +25,10 @@
 </head>
 
 <body>
-    <!--  HEADER  -->
-
-
     <!--  Start MAIN section  -->
-
     <main>
         <section>
-
             <div class="container ">
-
                 <header class="row text-center pb-2">
                     <div class="col-12 top-bar">
                         <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse justify-content-center">
@@ -54,7 +51,6 @@
                     </div>
                 </header>
 
-
                 <!--  Color cards  -->
                 <div class="row text-center color-cards">
                     <div class="col-6 col-md-3 col-sm-3 chart-1">
@@ -63,7 +59,23 @@
                         <hr>
                         <p>Нових:</p>
                         <h3>0</h3>
-                        <div class="triangle"></div>
+                        <div class="triangle" data-toggle="modal" data-target="#build-modal"></div>
+                        <div class="modal" id="build-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content total-build">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Будівлі медичних закладів області</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Тут буде зведена інформація по області</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-6 col-md-3 col-sm-3 chart-2">
                         <h2>1058</h2>
@@ -71,7 +83,22 @@
                         <hr>
                         <p>Нових:</p>
                         <h3>10</h3>
-                        <div class="triangle"></div>
+                        <div class="triangle" data-toggle="modal" data-target="#avto-modal"></div>
+                        <div class="modal" id="avto-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content total-avto">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Avto медичних закладів області</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Тут буде зведена інформація по області</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-6 col-md-3 col-sm-3 chart-3">
                         <h2>55058</h2>
@@ -79,7 +106,22 @@
                         <hr>
                         <p>Нових:</p>
                         <h3>107</h3>
-                        <div class="triangle"></div>
+                        <div class="triangle" data-toggle="modal" data-target="#eqip-modal"></div>
+                        <div class="modal" id="eqip-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content total-eqip">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Будівлі медичних закладів області</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Тут буде зведена інформація по області</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-6 col-md-3 col-sm-3 chart-4">
                         <h2>458</h2>
@@ -87,7 +129,22 @@
                         <hr>
                         <p>Нових:</p>
                         <h3>9</h3>
-                        <div class="triangle"></div>
+                        <div class="triangle" data-toggle="modal" data-target="#pc-modal"></div>
+                        <div class="modal" id="pc-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content total-pc">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Будівлі медичних закладів області</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Тут буде зведена інформація по області</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -203,8 +260,6 @@
             <!--END Slider-->
         </section>
         <!--<footer class="container footer pt-3 pl-0 pr-0">
-
-
             <div class="row text-center">
                 <div class="col-12">
                     <nav class="navbar navbar-toggleable-md  navbar-light bg-faded">
@@ -215,12 +270,11 @@
                 </div>
             </div>
         </footer>-->
+
     </main>
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="charts.js"></script>
 

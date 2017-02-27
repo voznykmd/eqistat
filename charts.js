@@ -149,3 +149,5 @@ chart1.draw(data1, options);
         var chart3 = new google.visualization.GeoChart(document.getElementById('eqip-chart-o'));
         chart3.draw(data3, options3);
       }
+
+      $('#myModal').modal('toggle')
