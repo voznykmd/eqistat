@@ -104,3 +104,7 @@ box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.28);
 .mini-container {
 	margin-top: 10px;
 }
+
+.top-bar {
+	padding: 0;
+}
