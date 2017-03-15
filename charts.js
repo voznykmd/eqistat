@@ -151,3 +151,77 @@ chart1.draw(data1, options);
       }
 
       $('#myModal').modal('toggle')
+
+	// Buildings title dinamic values //
+
+var buildtotal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/1/public/full/R31C3?alt=json").done(function(){
+                var json = JSON.parse(buildtotal.responseText);
+
+                var btotal = (json.entry.gs$cell.$t);
+                document.getElementById("b-total").innerHTML = btotal;
+                console.log (btotal);
+            });
+
+var buildcritical = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/1/public/full/R31C17?alt=json").done(function(){
+                var json = JSON.parse(buildcritical.responseText);
+
+                var bcritical = (json.entry.gs$cell.$t);
+                document.getElementById("b-critical").innerHTML = bcritical;
+                console.log ();
+            });
+
+	// Automobiles title dinamic values //
+
+var autototal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/5/public/full/R31C3?alt=json").done(function(){
+                var json = JSON.parse(autototal.responseText);
+
+                var atotal = (json.entry.gs$cell.$t);
+                document.getElementById("a-total").innerHTML = atotal;
+                console.log (atotal);
+            });
+
+var autostaf = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/5/public/full/R31C11?alt=json").done(function(){
+                var json = JSON.parse(autostaf.responseText);
+
+                var astaf = (json.entry.gs$cell.$t);
+                document.getElementById("a-staf").innerHTML = astaf;
+                console.log (astaf);
+            });
+
+// Automobiles title dinamic values //
+
+var pctotal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/7/public/full/R31C3?alt=json").done(function(){
+                var json = JSON.parse(pctotal.responseText);
+
+                var ptotal = (json.entry.gs$cell.$t);
+                document.getElementById("p-total").innerHTML = ptotal;
+                console.log (ptotal);
+            });
+
+var pcstaf = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/7/public/full/R31C4?alt=json").done(function(){
+                var json = JSON.parse(pcstaf.responseText);
+
+                var pstaf = (json.entry.gs$cell.$t);
+                document.getElementById("p-staf").innerHTML = pstaf;
+                console.log (pstaf);
+            });
+
+
+// Medeqipment title dinamic values //
+
+var eqiptotal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/9/public/full/R31C4?alt=json").done(function(){
+                var json = JSON.parse(eqiptotal.responseText);
+
+                var etotal = (json.entry.gs$cell.$t);
+                document.getElementById("e-total").innerHTML = etotal + "%";
+                console.log (etotal);
+            });
+
+var eqipmri = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/9/public/full/R31C15?alt=json").done(function(){
+                var json = JSON.parse(eqipmri.responseText);
+
+                var mristaf = (json.entry.gs$cell.$t);
+                document.getElementById("mri-staf").innerHTML = mristaf;
+                console.log (mristaf);
+            });
+

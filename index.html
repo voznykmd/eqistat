@@ -46,7 +46,7 @@
                                   <a class="nav-link" href="#">About</a>
                               </li>
                           </ul>-->
-                            <span class="navbar-text">Моніторинг ознащеності медичних закладів</span>
+                            <span class="navbar-text">Моніторинг оcнащеності медичних закладів</span>
                         </nav>
                     </div>
                 </header>
@@ -54,14 +54,14 @@
                 <!--  Color cards  -->
                 <div class="row text-center color-cards">
                     <div class="col-6 col-md-3 col-sm-3 chart-1">
-                        <h2>223</h2>
+                        <h2 id="b-total"></h2>
                         <h3>Будівлі</h3>
                         <hr>
-                        <p>Нових:</p>
-                        <h3>0</h3>
+                        <p>Аварійні:</p>
+                        <h3 id="b-critical"></h3>
                         <div class="triangle" data-toggle="modal" data-target="#build-modal"></div>
                         <div class="modal" id="build-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-build">
                                     <div class="modal-header">
                                         <h5 class="modal-title">Будівлі медичних закладів області</h5>
@@ -70,7 +70,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Тут буде зведена інформація по області</p>
+                                        <iframe src="https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/pubhtml?gid=2091538587&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
                                     </div>
 
                                 </div>
@@ -78,14 +78,14 @@
                         </div>
                     </div>
                     <div class="col-6 col-md-3 col-sm-3 chart-2">
-                        <h2>1058</h2>
+                        <h2 id="a-total"></h2>
                         <h3>Авто</h3>
                         <hr>
-                        <p>Нових:</p>
-                        <h3>10</h3>
+                        <p>Забезпеченість:</p>
+                        <h3 id="a-staf"></h3>
                         <div class="triangle" data-toggle="modal" data-target="#avto-modal"></div>
                         <div class="modal" id="avto-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-avto">
                                     <div class="modal-header">
                                         <h5 class="modal-title">Avto медичних закладів області</h5>
@@ -94,53 +94,53 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Тут буде зведена інформація по області</p>
+                                        <iframe src="https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/pubhtml?gid=494279495&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3 col-sm-3 chart-3">
-                        <h2>55058</h2>
+                        <h2 id="mri-staf"></h2>
                         <h3>Обладнання</h3>
                         <hr>
-                        <p>Нових:</p>
-                        <h3>107</h3>
+                        <p>Оснащеність:</p>
+                        <h3 id="e-total"></h3>
                         <div class="triangle" data-toggle="modal" data-target="#eqip-modal"></div>
                         <div class="modal" id="eqip-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-eqip">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Будівлі медичних закладів області</h5>
+                                        <h5 class="modal-title">Медичне обладнання закладів області</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Тут буде зведена інформація по області</p>
+                                        <iframe src="https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/pubhtml?gid=1353134996&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-md-3 col-sm-3 chart-4">
-                        <h2>458</h2>
-                        <h3>Компютери</h3>
+                        <h2 id="p-total"></h2>
+                        <h3>Комп'ютери</h3>
                         <hr>
-                        <p>Нових:</p>
-                        <h3>9</h3>
+                        <p>Потреба:</p>
+                        <h3 id="p-staf"></h3>
                         <div class="triangle" data-toggle="modal" data-target="#pc-modal"></div>
                         <div class="modal" id="pc-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-pc">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Будівлі медичних закладів області</h5>
+                                        <h5 class="modal-title">Комп'ютери медичних закладів області</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Тут буде зведена інформація по області</p>
+                                        <iframe src="https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/pubhtml?gid=1806793744&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
                                     </div>
                                 </div>
                             </div>
