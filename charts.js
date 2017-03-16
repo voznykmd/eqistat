@@ -22,7 +22,7 @@ google.charts.setOnLoadCallback(drawVisualization);
 
 var options = {
 
-        legend: { position: 'top', alignment: 'center', maxLines: 3 },
+        legend: { position: 'top', alignment: 'center', maxLines: 2 },
         colors: ['#19BA55', '#4271B7', '#FFAE23', '#FF4923'],
         isStacked: true,
        };
