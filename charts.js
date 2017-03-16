@@ -2,15 +2,15 @@ google.charts.load( "current", {packages: ['corechart']});
 google.charts.load('upcoming', {'packages': ['geochart']});
 
 
-      google.charts.setOnLoadCallback(drawGID);
+google.charts.setOnLoadCallback(drawGID);
 google.charts.setOnLoadCallback(drawVisualization);
 
 
     function drawGID() {
-      var queryString = encodeURIComponent('SELECT A, B, C LIMIT 22 OFFSET 0');
+      var queryString = encodeURIComponent('SELECT B, K, L, M, N LIMIT 29 OFFSET 0');
 
       var query = new google.visualization.Query(
-          'https://docs.google.com/spreadsheets/d/1rP3shkngNOjPTrV8WOezQHkxByxapb1eHxRFYe978dY/gviz/tq?sheet=Sheet1&headers=1&tq=' + queryString );
+          'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Sheet1&headers=1&tq=' + queryString );
       query.send(handleQueryResponse);
     }
 
@@ -20,10 +20,20 @@ google.charts.setOnLoadCallback(drawVisualization);
         return;
       }
 
+var options = {
+
+        legend: { position: 'top', alignment: 'center', maxLines: 3 },
+        colors: ['#19BA55', '#4271B7', '#FFAE23', '#FF4923'],
+        isStacked: true,
+       };
+
       var data = response.getDataTable();
       var chart = new google.visualization.ColumnChart(document.getElementById('eqip-chart'));
-      chart.draw(data);
+      chart.draw(data, options);
     }
+
+
+
 
 
 
@@ -159,7 +169,7 @@ var buildtotal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsn
 
                 var btotal = (json.entry.gs$cell.$t);
                 document.getElementById("b-total").innerHTML = btotal;
-                console.log (btotal);
+                
             });
 
 var buildcritical = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/1/public/full/R31C17?alt=json").done(function(){
@@ -167,7 +177,7 @@ var buildcritical = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9
 
                 var bcritical = (json.entry.gs$cell.$t);
                 document.getElementById("b-critical").innerHTML = bcritical;
-                console.log ();
+               
             });
 
 	// Automobiles title dinamic values //
@@ -177,7 +187,7 @@ var autototal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj
 
                 var atotal = (json.entry.gs$cell.$t);
                 document.getElementById("a-total").innerHTML = atotal;
-                console.log (atotal);
+                
             });
 
 var autostaf = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/5/public/full/R31C11?alt=json").done(function(){
@@ -185,17 +195,17 @@ var autostaf = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9
 
                 var astaf = (json.entry.gs$cell.$t);
                 document.getElementById("a-staf").innerHTML = astaf;
-                console.log (astaf);
+               
             });
 
-// Automobiles title dinamic values //
+// PC title dinamic values //
 
 var pctotal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/7/public/full/R31C3?alt=json").done(function(){
                 var json = JSON.parse(pctotal.responseText);
 
                 var ptotal = (json.entry.gs$cell.$t);
                 document.getElementById("p-total").innerHTML = ptotal;
-                console.log (ptotal);
+               
             });
 
 var pcstaf = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/7/public/full/R31C4?alt=json").done(function(){
@@ -203,7 +213,7 @@ var pcstaf = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qp
 
                 var pstaf = (json.entry.gs$cell.$t);
                 document.getElementById("p-staf").innerHTML = pstaf;
-                console.log (pstaf);
+               
             });
 
 
@@ -214,7 +224,7 @@ var eqiptotal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj
 
                 var etotal = (json.entry.gs$cell.$t);
                 document.getElementById("e-total").innerHTML = etotal + "%";
-                console.log (etotal);
+               
             });
 
 var eqipmri = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/9/public/full/R31C15?alt=json").done(function(){
@@ -222,6 +232,8 @@ var eqipmri = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9q
 
                 var mristaf = (json.entry.gs$cell.$t);
                 document.getElementById("mri-staf").innerHTML = mristaf;
-                console.log (mristaf);
+                
             });
+
+
 
