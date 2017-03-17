@@ -156,9 +156,9 @@
                     <div class="col-12">
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-secondary" onclick="currentDiv(1), drawGID()">Будівлі</button>
-                            <button type="button" class="btn btn-secondary" onclick="currentDiv(2), drawVisualization()">Транспорт</button>
-                            <button type="button" class="btn btn-secondary" onclick="currentDiv(3), drawMarkersMap()">Обладнання</button>
-<button type="button" class="btn btn-secondary" onclick="currentDiv(4), drawMarkersMap()">Комп'ютери</button>
+                            <button type="button" class="btn btn-secondary" onclick="currentDiv(2)">Транспорт</button>
+                            <button type="button" class="btn btn-secondary" onclick="currentDiv(3)">Обладнання</button>
+                            <button type="button" class="btn btn-secondary" onclick="currentDiv(4)">Комп'ютери</button>
                         </div>
                     </div>
                 </div>
@@ -170,23 +170,23 @@
                         <hr>
                         <!--First slide content-->
                         <div class="tab-content">
-                            <div class="tab-pane active" id="eqip-chart" role="tabpanel"></div>
-                            <div class="tab-pane" id="auto-chart" role="tabpanel"></div>
-                            <div class="tab-pane" id="buid-chart" role="tabpanel"></div>
-                            <div class="tab-pane" id="it-chart" role="tabpanel"></div>
+                            <div class="tab-pane active" id="build-age" role="tabpanel"></div>
+                            <div class="tab-pane" id="build-type" role="tabpanel"></div>
+                            <div class="tab-pane" id="build-state" role="tabpanel"></div>
+
                         </div>
                         <!--First slide navigation-->
-                        <ul class="nav nav-pills justify-content-center">
+                        <ul class="nav nav-pills justify-content-center pb-2">
                             <li class="nav-item active">
-                                <a class="nav-link" id="eqip" data-toggle="tab" href="#eqip-chart" role="tab">Вік</a>
+                                <a class="nav-link" id="b-age" data-toggle="tab" href="#build-age" role="tab">Вік</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="auto" data-toggle="tab" href="#auto-chart" role="tab">Тип</a>
+                                <a class="nav-link" id="b-type" data-toggle="tab" href="#build-type" role="tab">Тип</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="build" data-toggle="tab" href="#buid-chart" role="tab">Стан</a>
+                                <a class="nav-link" id="b-state" data-toggle="tab" href="#build-state" role="tab">Стан</a>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -201,11 +201,11 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="eqip-chart-m" role="tabpanel"></div>
                             <div class="tab-pane" id="auto-chart-m" role="tabpanel"></div>
-                            <div class="tab-pane" id="buid-chart-m" role="tabpanel"></div>
-                            <div class="tab-pane" id="it-chart-m" role="tabpanel"></div>
+                            <div class="tab-pane" id="auto-chart-m" role="tabpanel"></div>
+                            <div class="tab-pane" id="auto-chart-m" role="tabpanel"></div>
                         </div>
                         <!--Second slide navigation-->
-                        <ul class="nav nav-pills justify-content-center">
+                        <ul class="nav nav-pills justify-content-center pb-2">
                             <li class="nav-item active">
                                 <a class="nav-link" id="eqip-m" data-toggle="tab" href="#eqip-chart-m" role="tab">З ношами</a>
                             </li>
@@ -237,7 +237,7 @@
 
                         </div>
                         <!--Third slide navigation-->
-                        <ul class="nav nav-pills justify-content-center text-center">
+                        <ul class="nav nav-pills justify-content-center text-center pb-2">
                             <li class="nav-item active">
                                 <a class="nav-link" id="eqip" data-toggle="tab" href="#eqip-chart-o" role="tab">Забезпеченість</a>
                             </li>
@@ -252,7 +252,7 @@
                     </div>
                 </div>
 
-<div class="row text-center">
+                <div class="row text-center">
                     <div class="col-12 big-diagramm myslides">
                         <h2>Комп'ютери</h2>
                         <hr>
@@ -264,8 +264,8 @@
                             <div class="tab-pane" id="it-chart-o" role="tabpanel"></div>
 
                         </div>
-                        <!--Third slide navigation-->
-                        <ul class="nav nav-pills justify-content-center text-center">
+                        <!--Four slide navigation-->
+                        <ul class="nav nav-pills justify-content-center text-center pb-2">
                             <li class="nav-item active">
                                 <a class="nav-link" id="eqip" data-toggle="tab" href="#eqip-chart-o" role="tab">Потреба</a>
                             </li>
