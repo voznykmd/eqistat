@@ -138,6 +138,9 @@ var options = {
         legend: { position: 'top', alignment: 'center', maxLines: 2 },
         colors: ['#19BA55', '#4271B7', '#FFAE23', '#FF4923'],
         isStacked: 'percent',
+	hAxis: {
+        slantedText:true,
+        slantedTextAngle:60},
        };
 
       var data = response.getDataTable();
@@ -166,6 +169,9 @@ var options = {
     legend: { position: 'top', alignment: 'center', maxLines: 2 },
     colors: ['#4271B7', '#FFAE23', '#FF4923'],
     isStacked: 'percent',
+    hAxis: {
+        slantedText:true,
+        slantedTextAngle:60},
    };
 
   var data1 = response.getDataTable();
@@ -194,6 +200,9 @@ var options = {
     legend: { position: 'top', alignment: 'center', maxLines: 2 },
     colors: ['#19BA55', '#FFAE23'],
     isStacked: 'percent',
+hAxis: {
+        slantedText:true,
+        slantedTextAngle:60},
    };
 
   var data2 = response.getDataTable();
@@ -222,6 +231,9 @@ var optionsA1 = {
     legend: { position: 'top', alignment: 'center', maxLines: 2 },
     colors: ['#19BA55', '#FF4923'],
     isStacked: 'percent',
+hAxis: {
+        slantedText:true,
+        slantedTextAngle:60},
    };
 
   var dataA1 = response.getDataTable();
@@ -251,6 +263,9 @@ var optionsA2 = {
     legend: { position: 'top', alignment: 'center', maxLines: 2 },
     colors: ['#19BA55', '#FF4923'],
     isStacked: 'percent',
+hAxis: {
+        slantedText:true,
+        slantedTextAngle:60},
    };
 
   var dataA2 = response.getDataTable();
@@ -281,6 +296,9 @@ var optionsA4 = {
     legend: { position: 'top', alignment: 'center', maxLines: 2 },
     colors: ['#19BA55', '#FF4923'],
     isStacked: 'percent',
+hAxis: {
+        slantedText:true,
+        slantedTextAngle:60},
    };
 
   var dataA4 = response.getDataTable();
@@ -308,6 +326,9 @@ var optionsE1 = {
 
     legend: { position: 'top', alignment: 'center', maxLines: 2 },
     colors: ['#19BA55', '#4271B7'],
+hAxis: {
+        slantedText:true,
+        slantedTextAngle:60},
 
    };
 
@@ -342,6 +363,9 @@ var optionsPC1 = {
   legend: { position: 'top', alignment: 'center', maxLines: 2 },
   colors: ['#19BA55', '#FF4923'],
   isStacked: 'percent',
+hAxis: {
+        slantedText:true,
+        slantedTextAngle:60},
  };
 
   var dataPC1 = response.getDataTable();
