@@ -2,6 +2,7 @@
 
 google.charts.load( "current", {packages: ['corechart']});
 google.charts.load('current', {packages:['table']});
+google.charts.load('current', {packages: ['geochart']});
 
 google.charts.setOnLoadCallback(drawGID);
 
@@ -31,6 +32,7 @@ google.charts.setOnLoadCallback(drawGID);
           }
           x[slideIndex-1].style.display = "block";
         }
+
 
 //Draw buildings table
 
@@ -338,7 +340,40 @@ hAxis: {
 }
 
 
-// Draw  chart EQIP2
+// Draw  chart EQIP2 - MAP
+
+
+ function drawEqip2() {
+  var queryStringE2 = encodeURIComponent('SELECT B, E LIMIT 28 OFFSET 0');
+
+  var queryE2 = new google.visualization.Query(
+      'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Обладнання&headers=1&tq=' + queryStringE2 );
+  queryE2.send(handleQueryResponseE2);
+}
+
+function handleQueryResponseE2(response) {
+  if (response.isError()) {
+    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    return;
+  }
+
+var optionsE2 = {
+
+   region: 'UA',
+displayMode: 'markers',
+sizeAxis: { minValue: 0, maxValue: 100 },
+
+colorAxis: {colors: ['#FF4923', '#19BA55']},
+    backgroundColor: 'white',
+          datalessRegionColor: 'white',
+          defaultColor: '#f5f5f5',
+    }
+
+  var dataE2 = response.getDataTable();
+  var chartE2 = new google.visualization.GeoChart(document.getElementById('eqip-2'));
+  chartE2.draw(dataE2, optionsE2);
+}
+
 // Draw  chart EQIP3
 
 
@@ -383,6 +418,7 @@ $(window).resize(function(){
   drawAvto2();
   drawAvto4();
   drawEqip1();
+  drawEqip2();
   drawPC1();
 
 });
