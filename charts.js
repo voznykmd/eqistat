@@ -520,3 +520,5 @@ var eqipmri = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9q
                 document.getElementById("mri-staf").innerHTML = mristaf;
 
             });
+
+

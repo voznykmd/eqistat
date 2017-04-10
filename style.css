@@ -123,3 +123,20 @@ min-height: 6em;
 .m-name {
 	color: #7f8181;
 }
+
+#map{
+pointer-events: none;
+border: none;
+width: 100%;
+height: 85vh;
+}
+
+#map-go {
+width: 65%;
+height: auto;
+}
+
+.gmap {
+	padding-left: 0;
+	padding-right: 0;
+}
