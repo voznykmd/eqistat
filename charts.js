@@ -452,6 +452,7 @@ $(window).resize(function(){
   drawEqip1();
   drawEqip2();
   drawPC1();
+  drawPC3();
 
 });
 
