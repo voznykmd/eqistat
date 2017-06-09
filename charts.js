@@ -275,7 +275,7 @@ hAxis: {
   chartA2.draw(dataA2, optionsA2);
 }
 
-// Draw  chart AVTO-3 HERE MUST BE!!!
+// Draw  chart AVTO-3  MUST BE HERE!!!
 
 // Draw  chart AVTO-4
 
@@ -408,6 +408,38 @@ hAxis: {
   chartPC1.draw(dataPC1, optionsPC1);
 }
 
+//Draw chart PC3 - Internet
+
+function drawPC3() {
+  var queryStringPC3 = encodeURIComponent('SELECT B, H LIMIT 29 OFFSET 0');
+
+  var queryPC3 = new google.visualization.Query(
+      'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Компютери&headers=1&tq=' + queryStringPC3 );
+  queryPC3.send(handleQueryResponsePC3);
+}
+
+function handleQueryResponsePC3(response) {
+  if (response.isError()) {
+    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    return;
+  }
+
+var optionsPC3 = {
+  title: "Кількість закладів підключених до мережі Інтернет",
+  legend: { position: 'top', alignment: 'center', maxLines: 2 },
+  colors: ['#19BA55'],
+  // titlePosition: 'out',
+
+hAxis: {
+        slantedText:true,
+        slantedTextAngle:60},
+ };
+
+  var dataPC3 = response.getDataTable();
+  var chartPC3 = new google.visualization.BarChart(document.getElementById('pc-3'));
+  chartPC3.draw(dataPC3, optionsPC3);
+}
+
 
 //Redraw charts after resize
 
@@ -520,5 +552,3 @@ var eqipmri = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9q
                 document.getElementById("mri-staf").innerHTML = mristaf;
 
             });
-
-

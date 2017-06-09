@@ -35,9 +35,9 @@ h3 {
   font-size: 2.5vh;
 }
 
-a {
+/*a {
   font-size: 1.6vmin;
-}
+}*/
 
 .chart-1 {
   background-color: #fa424a;
@@ -143,4 +143,8 @@ height: auto;
 
 .navbar.navbar-light.grey {
 	background-color: #4d6a79;
+}
+
+.btn {
+	font-size: 12px!important;
 }
