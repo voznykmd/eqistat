@@ -254,7 +254,10 @@
                         <!-- Tab portfolio panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="pc-1" role="tabpanel"></div>
-                            <div class="tab-pane" id="pc-2" role="tabpanel"></div>
+                            <div class="tab-pane" id="pc-2" role="tabpanel">
+                                <div id="pc-2-filter"></div>
+                                <div id="pc-2-chart"></div>
+                            </div>
                             <div class="tab-pane" id="pc-3" role="tabpanel"></div>
 
 
@@ -265,7 +268,7 @@
                                 <a class="nav-link" data-toggle="tab" href="#pc-1" role="tab" onclick="drawPC1()">Потреба</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#pc-2" role="tab">Розташування</a>
+                                <a class="nav-link" data-toggle="tab" href="#pc-2" role="tab" onclick="drawPC2()">Розташування</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#pc-3" role="tab" onclick="drawPC3()">Інтернет</a>
@@ -282,6 +285,7 @@
             <!--END Slider-->
 
         </section>
+
         <!--   <section>
             <div class="container-fluid pt-3">
                 <div class="row text-center">

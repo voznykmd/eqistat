@@ -1,8 +1,9 @@
 // Google charts packages upload
 
-google.charts.load( "current", {packages: ['corechart']});
+google.charts.load('current', {'packages':['corechart', 'controls']});
 google.charts.load('current', {packages:['table']});
 google.charts.load('current', {packages: ['geochart']});
+
 
 google.charts.setOnLoadCallback(drawGID);
 
@@ -407,6 +408,48 @@ hAxis: {
   var chartPC1 = new google.visualization.ColumnChart(document.getElementById('pc-1'));
   chartPC1.draw(dataPC1, optionsPC1);
 }
+
+//Draw chart PC2 - Placement
+    
+function drawPC2() {
+
+        // Create our data table.
+
+  var queryStringPC2 = encodeURIComponent('SELECT B, E, F, G LIMIT 29');
+
+  var queryPC2 = new google.visualization.Query(
+      'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Компютери&headers=1&tq=' + queryStringPC2 );
+  queryPC2.send(handleQueryResponsePC2);
+}
+
+function handleQueryResponsePC2(response) {
+
+        var datapc2 = response.getDataTable();
+        // Create a dashboard.
+        var dashboard = new google.visualization.Dashboard(
+            document.getElementById('pc-2'));
+        // Create a range slider, passing some options
+        var controlPC2 = new google.visualization.ControlWrapper({
+          'controlType': 'CategoryFilter',
+          'containerId': 'pc-2-filter',
+          'options': {
+            'filterColumnIndex': 0,
+          }
+        });
+        // Create a chart, passing some options
+        var colChart = new google.visualization.ChartWrapper({
+          'chartType': 'ColumnChart',
+          'containerId': 'pc-2-chart',
+          'options': {
+            isStacked: 'percent',
+            'legend': 'right',
+          }
+        });
+
+        dashboard.bind(controlPC2, colChart);
+
+        dashboard.draw(datapc2);
+      }
 
 //Draw chart PC3 - Internet
 
