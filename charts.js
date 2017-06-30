@@ -410,7 +410,7 @@ hAxis: {
 }
 
 //Draw chart PC2 - Placement
-    
+
 function drawPC2() {
 
         // Create our data table.
