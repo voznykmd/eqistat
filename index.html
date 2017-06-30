@@ -25,12 +25,12 @@
 </head>
 
 <body>
-    <div class="overlay">
+    <!-- <div class="overlay">
         <div class="overlay-content">
             <h1>На сайті ведуться технічні роботи.</h1>
             <h2>Вибачта за незручності.</h2>
         </div>
-    </div>
+    </div> -->
     <!--  Start MAIN section  -->
     <main>
         <section>
@@ -64,7 +64,7 @@
                         <hr>
                         <p>Аварійні:</p>
                         <h3 id="b-critical"></h3>
-                        <div class="triangle" data-toggle="modal" data-target="#build-modal" onclick="drawBTable()"></div>
+                        <div class="triangle" data-toggle="modal" data-target="#build-modal" onclick="getBuildingsTable()"></div>
                         <div class="modal" id="build-modal" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-build">
@@ -157,7 +157,7 @@
                 <div class="row text-center pb-2 ">
                     <div class="col-12">
                         <div class="btn-group btn-group-sm" role="group">
-                            <button type="button" class="btn btn-secondary" onclick="currentDiv(1), drawGID()">Будівлі</button>
+                            <button type="button" class="btn btn-secondary" onclick="currentDiv(1), getBuildingsAgeChart()">Будівлі</button>
                             <button type="button" class="btn btn-secondary" onclick="currentDiv(2), drawAvto1()">Транспорт</button>
                             <button type="button" class="btn btn-secondary" onclick="currentDiv(3), drawEqip1()">Обладнання</button>
                             <button type="button" class="btn btn-secondary" onclick="currentDiv(4), drawPC1()">Комп'ютери</button>
@@ -330,12 +330,11 @@
 
     </main>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApbWpIYLpSg3j28r5Fae9kzx-JheGqwuM"></script>
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="slider.js"></script>
     <script src="charts.js"></script>
 
 </body>
