@@ -1,6 +1,6 @@
 // Google charts packages upload
 google.charts.load('current', {
-    'packages': ['corechart', 'controls', 'table', 'geochart']
+    'packages': ['corechart', 'bar', 'controls', 'table', 'geochart']
 });
 
 google.charts.setOnLoadCallback(getBuildingsAgeChart);
@@ -18,6 +18,21 @@ var queryBuildingsLink = queryGlobalLink + buildings + querySufix;
 var queryCarsLink = queryGlobalLink + cars + querySufix;
 var queryEquipLink = queryGlobalLink + equipment + querySufix;
 var queryPCLink = queryGlobalLink + computers + querySufix;
+//Global charts options
+var columnChartOptions = {
+   isStacked: true,
+    legend: {
+        position: 'top',
+        alignment: 'center',
+        maxLines: 2
+    },
+    colors: ['#19BA55', '#4271B7', '#FFAE23', '#FF4923'],
+
+    hAxis: {
+        slantedText: true,
+        slantedTextAngle: 60
+    },
+};
 
 //Draw buildings table
 function getBuildingsTable() {
@@ -76,37 +91,58 @@ function queryResponsePCTable(response) {
     let table = new google.visualization.Table(document.getElementById('p-modal'));
     table.draw(data);
 }
-
-//Draw buildings AGES chart
+//test
 function getBuildingsAgeChart() {
-    let queryBuildingsData = 'SELECT B, K, L, M, N LIMIT 29 OFFSET 0';
-    let queryBuildingsString = encodeURIComponent(queryBuildingsData);
-    var query = new google.visualization.Query(queryBuildingsLink + queryBuildingsString);
-    query.send(drawBuildingsAgeChart);
+  let queryBuildingsData = 'SELECT B, K, L, M, N LIMIT 29 OFFSET 0';
+  let queryBuildingsString = encodeURIComponent(queryBuildingsData);
+  var query = new google.visualization.Query(queryBuildingsLink + queryBuildingsString);
+  query.send(drawBuildingsAgeChart);
 }
 
 function drawBuildingsAgeChart(response) {
-    var options = {
-        legend: {
-            position: 'top',
-            alignment: 'center',
-            maxLines: 2
-        },
-        colors: ['#19BA55', '#4271B7', '#FFAE23', '#FF4923'],
-        isStacked: 'percent',
-        hAxis: {
-            slantedText: true,
-            slantedTextAngle: 60
-        },
-    };
-
     var data = response.getDataTable();
-    var chart = new google.visualization.ColumnChart(document.getElementById('build-age'));
-    chart.draw(data, options);
+    var dashboard = new google.visualization.Dashboard(document.getElementById('build-age'));
+    // Create a range slider, passing some options
+    var control = new google.visualization.ControlWrapper({
+        'controlType': 'CategoryFilter',
+        'containerId': 'buildings-age-filter',
+        'options': {
+          'filterColumnIndex': 0,
+        }
+    });
+    // Create a chart, passing some options
+    var colChart = new google.visualization.ChartWrapper({
+        'chartType': 'ColumnChart',
+        'containerId': 'buildings-age-chart',
+        'options': {
+            isStacked: 'percent',
+            'legend':   {
+              position: 'top',
+              alignment: 'center',
+              maxLines: 2
+            }
+        }
+    });
+    dashboard.bind(control, colChart);
+    dashboard.draw(data);
 }
 
-// Draw buildings STATE chart
 
+//Draw buildings AGES chart
+// function getBuildingsAgeChart() {
+//     let queryBuildingsData = 'SELECT B, K, L, M, N LIMIT 29 OFFSET 0';
+//     let queryBuildingsString = encodeURIComponent(queryBuildingsData);
+//     var query = new google.visualization.Query(queryBuildingsLink + queryBuildingsString);
+//     query.send(drawBuildingsAgeChart);
+// }
+//
+// function drawBuildingsAgeChart(response) {
+//     var data = response.getDataTable();
+//     var chart = new google.charts.Bar(document.getElementById('build-age'));
+//     chart.draw(data, google.charts.Bar.convertOptions(columnChartOptions));
+// }
+
+// Draw buildings STATE chart
 function drawGID1() {
     var queryString1 = encodeURIComponent('SELECT B, O, P, Q LIMIT 29 OFFSET 0');
 
@@ -120,25 +156,9 @@ function handleQueryResponse1(response) {
         alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
         return;
     }
-
-    var options = {
-
-        legend: {
-            position: 'top',
-            alignment: 'center',
-            maxLines: 2
-        },
-        colors: ['#4271B7', '#FFAE23', '#FF4923'],
-        isStacked: 'percent',
-        hAxis: {
-            slantedText: true,
-            slantedTextAngle: 60
-        },
-    };
-
     var data1 = response.getDataTable();
     var chart1 = new google.visualization.ColumnChart(document.getElementById('build-state'));
-    chart1.draw(data1, options);
+    chart1.draw(data1, columnChartOptions);
 }
 
 // Draw buildings TYPE chart
@@ -157,24 +177,11 @@ function handleQueryResponse2(response) {
         return;
     }
 
-    var options = {
 
-        legend: {
-            position: 'top',
-            alignment: 'center',
-            maxLines: 2
-        },
-        colors: ['#19BA55', '#FFAE23'],
-        isStacked: 'percent',
-        hAxis: {
-            slantedText: true,
-            slantedTextAngle: 60
-        },
-    };
 
     var data2 = response.getDataTable();
     var chart2 = new google.visualization.ColumnChart(document.getElementById('build-type'));
-    chart2.draw(data2, options);
+    chart2.draw(data2, columnChartOptions);
 }
 
 // Draw  chart AVTO-1

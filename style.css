@@ -172,3 +172,11 @@ height: auto;
 .btn {
 	font-size: 12px!important;
 }
+
+#buildings-age-chart {
+  height: 100%;
+}
+
+.text-center,input {
+  text-align: left;
+}
