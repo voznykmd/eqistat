@@ -88,7 +88,7 @@
                         <hr>
                         <p>Забезпеченість:</p>
                         <h3 id="a-staf"></h3>
-                        <div class="triangle" data-toggle="modal" data-target="#avto-modal" onclick="drawATable()"></div>
+                        <div class="triangle" data-toggle="modal" data-target="#avto-modal" onclick="getCarsTable()"></div>
                         <div class="modal" id="avto-modal" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-avto">
@@ -110,7 +110,7 @@
                         <hr>
                         <p>Оснащеність:</p>
                         <h3 id="e-total"></h3>
-                        <div class="triangle" data-toggle="modal" data-target="#eqip-modal" onclick="drawETable()"></div>
+                        <div class="triangle" data-toggle="modal" data-target="#eqip-modal" onclick="getEquipTable()"></div>
                         <div class="modal" id="eqip-modal" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-eqip">
@@ -132,7 +132,7 @@
                         <hr>
                         <p>Потреба:</p>
                         <h3 id="p-staf"></h3>
-                        <div class="triangle" data-toggle="modal" data-target="#pc-modal" onclick="drawPTable()"></div>
+                        <div class="triangle" data-toggle="modal" data-target="#pc-modal" onclick="getPCTable()"></div>
                         <div class="modal" id="pc-modal" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-pc">
@@ -173,12 +173,17 @@
                         <!--First slide content-->
                         <div class="tab-content">
                             <div class="tab-pane active" id="build-age" role="tabpanel">
-                              <div id="buildings-age-filter"></div>
-                              <div id="buildings-age-chart"></div>
-
+                                <div id="buildings-age-filter"></div>
+                                <div id="buildings-age-chart" class="chart-container"></div>
                             </div>
-                            <div class="tab-pane" id="build-type" role="tabpanel"></div>
-                            <div class="tab-pane" id="build-state" role="tabpanel"></div>
+                            <div class="tab-pane" id="build-type" role="tabpanel">
+                                <div id="buildings-type-filter"></div>
+                                <div id="buildings-type-chart" class="chart-container"></div>
+                            </div>
+                            <div class="tab-pane" id="build-state" role="tabpanel">
+                                <div id="buildings-state-filter"></div>
+                                <div id="buildings-state-chart" class="chart-container"></div>
+                            </div>
 
                         </div>
                         <!--First slide navigation-->
@@ -266,7 +271,7 @@
                             <div class="tab-pane active" id="pc-1" role="tabpanel"></div>
                             <div class="tab-pane" id="pc-2" role="tabpanel">
                                 <div id="pc-2-filter"></div>
-                                <div id="pc-2-chart"></div>
+                                <div id="pc-2-chart" class="chart-container"></div>
                             </div>
                             <div class="tab-pane" id="pc-3" role="tabpanel"></div>
 

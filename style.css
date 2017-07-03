@@ -48,7 +48,7 @@ hr {
 
 }
 
-h1 {
+/*h1 {
   font-size: 5.9vh;
 }
 h2 {
@@ -57,11 +57,15 @@ h2 {
 
 h3 {
   font-size: 2.5vh;
-}
+}*/
 
 /*a {
   font-size: 1.6vmin;
 }*/
+
+label.google-visualization-controls-label {
+  display: none;
+}
 
 .chart-1 {
   background-color: #fa424a;
@@ -173,8 +177,8 @@ height: auto;
 	font-size: 12px!important;
 }
 
-#buildings-age-chart {
-  height: 100%;
+.chart-container {
+  min-height: 450px;
 }
 
 .text-center,input {
