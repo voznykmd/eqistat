@@ -4,6 +4,7 @@ google.charts.load('current', {
 });
 
 google.charts.setOnLoadCallback(getBuildingsAgeChart);
+google.charts.setOnLoadCallback(getChangesTable);
 
 // Global variable declaration
 var queryGlobalLink = 'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=';
@@ -15,11 +16,13 @@ var buildings = 'Будівлі';
 var cars = 'Транспорт';
 var equipment = 'Обладнання';
 var computers = 'Компютери';
+var changes = 'Зміни';
 //Full query link
 var queryBuildingsLink = queryGlobalLink + buildings + querySufix;
 var queryCarsLink = queryGlobalLink + cars + querySufix;
 var queryEquipLink = queryGlobalLink + equipment + querySufix;
 var queryPCLink = queryGlobalLink + computers + querySufix;
+var queryChangesLink = queryGlobalLink + changes + querySufix;
 //Global charts options
 var columnChartOptions = {
     isStacked: true,
@@ -89,6 +92,19 @@ function getPCTable() {
     function drawPCTable(response) {
         let data = response.getDataTable();
         let table = new google.visualization.Table(document.getElementById('p-modal'));
+        table.draw(data);
+    }
+}
+
+function getChangesTable() {
+    let queryChangesData = 'SELECT B, C, D, E';
+    let queryChangesString = encodeURIComponent(queryChangesData);
+    let query = new google.visualization.Query(queryChangesLink + queryChangesString);
+    query.send(drawChangesTable);
+
+    function drawChangesTable(response) {
+        let data = response.getDataTable();
+        let table = new google.visualization.Table(document.getElementById('changes'));
         table.draw(data);
     }
 }
@@ -430,7 +446,7 @@ function handleQueryResponsePC1(response) {
     };
 
     var dataPC1 = response.getDataTable();
-    var chartPC1 = new google.visualization.ColumnChart(document.getElementById('pc-1'));
+    var chartPC1 = new google.visualization.SteppedAreaChart(document.getElementById('pc-1'));
     chartPC1.draw(dataPC1, optionsPC1);
 }
 
@@ -463,12 +479,17 @@ function handleQueryResponsePC2(response) {
     });
     // Create a chart, passing some options
     var colChart = new google.visualization.ChartWrapper({
-        'chartType': 'ColumnChart',
+        'chartType': 'SteppedAreaChart',
         'containerId': 'pc-2-chart',
         'options': {
             isStacked: 'percent',
             'legend': 'right',
+            vAxis: {
+                format: 'percent'
+
+            }
         }
+
     });
 
     dashboard.bind(controlPC2, colChart);
@@ -514,45 +535,7 @@ function handleQueryResponsePC3(response) {
 }
 
 
-//Redraw charts after resize
 
-$(window).resize(function() {
-    getBuildingsAgeChart();
-    getBuildingsStateChart();
-    getBuildingsTypeChart();
-    drawAvto1();
-    drawAvto2();
-    drawAvto4();
-    drawEqip1();
-    drawEqip2();
-    drawPC1();
-    drawPC3();
-
-});
-
-//Draw charts on-click
-
-$("#b-age").click(function() {
-    getBuildingsAgeStateChart();
-});
-
-$("#b-type").click(function() {
-    getBuildingsTypeChart();
-});
-
-$("#b-state").click(function() {
-    getBuildingsStateChart();
-});
-
-$("#avto-zn").click(function() {
-    drawAvto1();
-});
-
-$("#avto-bn").click(function() {
-    drawAvto2();
-});
-
-$('#myModal').modal('toggle')
 
 // Buildings title dinamic values //
 

@@ -153,8 +153,11 @@
 
             <!--Diagrams slider-->
             <!-- General slider menu-->
-            <div class="container-fluid mini-container pt-3">
+            <div class="container-fluid mini-container py-5">
                 <div class="row text-center pb-2 ">
+                    <div class="col-12 pb-5">
+                        <h2>Інтерактивні діаграми для оцінки оснащеності медзакладів</h2>
+                    </div>
                     <div class="col-12">
                         <div class="btn-group btn-group-sm" role="group">
                             <button type="button" class="btn btn-secondary" onclick="currentDiv(1), getBuildingsAgeChart()">Будівлі</button>
@@ -168,8 +171,8 @@
                 <!--First slide START-->
                 <div class="row text-center">
                     <div class="col-12 big-diagramm myslides">
-                        <h3>Будівлі</h3>
-                        <hr>
+                        <h4>Будівлі</h4>
+
                         <!--First slide content-->
                         <div class="tab-content">
                             <div class="tab-pane active" id="build-age" role="tabpanel">
@@ -207,7 +210,7 @@
                 <div class="row text-center">
                     <div class="col-12 big-diagramm myslides">
                         <h3>Автомобілі</h3>
-                        <hr>
+
                         <!--Second slide content-->
                         <div class="tab-content">
                             <div class="tab-pane active" id="auto-1" role="tabpanel"></div>
@@ -238,7 +241,7 @@
                 <div class="row text-center">
                     <div class="col-12 big-diagramm myslides">
                         <h2>Обладнання</h2>
-                        <hr>
+
                         <!-- Tab portfolio panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="eqip-1" role="tabpanel"></div>
@@ -265,7 +268,7 @@
                 <div class="row text-center">
                     <div class="col-12 big-diagramm myslides">
                         <h2>Комп'ютери</h2>
-                        <hr>
+
                         <!-- Tab portfolio panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="pc-1" role="tabpanel"></div>
@@ -301,39 +304,36 @@
 
         </section>
 
-        <!--   <section>
-            <div class="container-fluid pt-3">
+        <section>
+            <div class="container-fluid py-3 changes-container">
                 <div class="row text-center">
-                    <div class="col-12">
-                        <h3>Карта госпітальних округів</h3>
-                        <img id="map-go" src="imgs/map-go.png">
+                    <div class="col-12 pt-5">
+                        <h3>Зміни у матеріально-технічному забезпеченні закладів охорони здоров'я</h3>
+                    </div>
+                    <div class="col-12 px-5 py-5" id="changes">
+                        <!-- <img id="map-go" src="imgs/map-go.png"> -->
                     </div>
                 </div>
             </div>
         </section>
 
 
-       <footer class=" pt-3">
-
-
-            <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse" id="footer">
-
-                <div class="col-6">
-                    <a class="navbar-brand" href="#">
-                        <img src="imgs/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> EqiStat
-                    </a>
+        <footer class="mt-4">
+            <div class="container-fluid py-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>LOMIAC</h5></div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div>
                 </div>
-
-                <div class="col-6 text-right">
-                    <span class="navbar-text">
-      Остання перевірка актуальності 20.03.2017р.
-    </span>
+                <div class="row">
+                    <div class="col-md-6">Остання актуалізація данних 20.04.2017 року<span class="small"><br>Unless the page content pushes me further.</span></div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3 text-right small align-self-end">©2017 LOMIAC, Inc.</div>
                 </div>
-
-            </nav>
-
-
-        </footer>-->
+            </div>
+        </footer>
 
 
 
@@ -345,6 +345,7 @@
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="slider.js"></script>
     <script src="charts.js"></script>
+    <script src="main.js"></script>
 
 </body>
 
