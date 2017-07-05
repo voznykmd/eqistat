@@ -17,7 +17,7 @@ $(window).resize(function() {
 //Draw charts on-click
 
 $("#b-age").click(function() {
-    getBuildingsAgeStateChart();
+    getBuildingsAgeChart();
 });
 
 $("#b-type").click(function() {
