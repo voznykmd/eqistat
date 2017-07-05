@@ -11,6 +11,9 @@ var queryGlobalLink = 'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPC
 var querySufix = '&headers=1&tq=';
 //Link to data for big titles
 var titleBuildingsData = 'https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/1/public/full/';
+var titleCarsData = 'https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/2/public/full/';
+var titleEquipData = 'https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/3/public/full/';
+var titlePCData = 'https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/4/public/full/';
 //List of names
 var buildings = 'Будівлі';
 var cars = 'Транспорт';
@@ -37,6 +40,9 @@ var columnChartOptions = {
         slantedText: true,
         slantedTextAngle: 60
     },
+    vAxis: {
+        format: 'percent'
+    }
 };
 
 //Draw buildings table
@@ -121,27 +127,17 @@ function getBuildingsAgeChart() {
         var dashboard = new google.visualization.Dashboard(document.getElementById('build-age'));
         // Create a range slider, passing some options
         var control = new google.visualization.ControlWrapper({
-            'controlType': 'CategoryFilter',
+            'controlType': 'NumberRangeFilter',
             'containerId': 'buildings-age-filter',
             'options': {
-                'filterColumnIndex': 0,
+                'filterColumnLabel': '>50 р',
             }
         });
         // Create a chart, passing some options
         var colChart = new google.visualization.ChartWrapper({
             'chartType': 'ColumnChart',
             'containerId': 'buildings-age-chart',
-            'options': {
-                isStacked: 'percent',
-                'legend': {
-                    position: 'top',
-                    alignment: 'center',
-                    maxLines: 2
-                },
-                vAxis: {
-                    format: 'percent'
-                }
-            }
+            'options': columnChartOptions
         });
         dashboard.bind(control, colChart);
         dashboard.draw(data);
@@ -169,17 +165,7 @@ function getBuildingsTypeChart() {
         var colChart = new google.visualization.ChartWrapper({
             'chartType': 'ColumnChart',
             'containerId': 'buildings-type-chart',
-            'options': {
-                isStacked: 'percent',
-                'legend': {
-                    position: 'top',
-                    alignment: 'center',
-                    maxLines: 2
-                },
-                vAxis: {
-                    format: 'percent'
-                }
-            }
+            'options': columnChartOptions
         });
         dashboard.bind(control, colChart);
         dashboard.draw(data);
@@ -207,17 +193,7 @@ function getBuildingsStateChart() {
         var colChart = new google.visualization.ChartWrapper({
             'chartType': 'ColumnChart',
             'containerId': 'buildings-state-chart',
-            'options': {
-                isStacked: 'percent',
-                'legend': {
-                    position: 'top',
-                    alignment: 'center',
-                    maxLines: 2
-                },
-                vAxis: {
-                    format: 'percent'
-                }
-            }
+            'options': columnChartOptions
         });
         dashboard.bind(control, colChart);
         dashboard.draw(data);
@@ -555,7 +531,7 @@ var buildcritical = $.ajax(titleBuildingsData + 'R31C17?alt=json').done(function
 
 // Automobiles title dinamic values //
 
-var autototal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/2/public/full/R31C3?alt=json").done(function() {
+var autototal = $.ajax(titleCarsData + 'R31C3?alt=json').done(function() {
     var json = JSON.parse(autototal.responseText);
 
     var atotal = (json.entry.gs$cell.$t);
@@ -563,7 +539,7 @@ var autototal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj
 
 });
 
-var autostaf = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/2/public/full/R31C7?alt=json").done(function() {
+var autostaf = $.ajax(titleCarsData + "R31C7?alt=json").done(function() {
     var json = JSON.parse(autostaf.responseText);
 
     var astaf = (json.entry.gs$cell.$t);
@@ -573,7 +549,7 @@ var autostaf = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9
 
 // PC title dinamic values //
 
-var pctotal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/3/public/full/R31C3?alt=json").done(function() {
+var pctotal = $.ajax(titleEquipData + "R31C3?alt=json").done(function() {
     var json = JSON.parse(pctotal.responseText);
 
     var ptotal = (json.entry.gs$cell.$t);
@@ -581,7 +557,7 @@ var pctotal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9q
 
 });
 
-var pcstaf = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/3/public/full/R31C4?alt=json").done(function() {
+var pcstaf = $.ajax(titleEquipData + "R31C4?alt=json").done(function() {
     var json = JSON.parse(pcstaf.responseText);
 
     var pstaf = (json.entry.gs$cell.$t);
@@ -592,7 +568,7 @@ var pcstaf = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qp
 
 // Medeqipment title dinamic values //
 
-var eqiptotal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/4/public/full/R31C4?alt=json").done(function() {
+var eqiptotal = $.ajax(titlePCData + "R31C4?alt=json").done(function() {
     var json = JSON.parse(eqiptotal.responseText);
 
     var etotal = (json.entry.gs$cell.$t);
@@ -600,7 +576,7 @@ var eqiptotal = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj
 
 });
 
-var eqipmri = $.ajax("https://spreadsheets.google.com/feeds/cells/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/4/public/full/R31C15?alt=json").done(function() {
+var eqipmri = $.ajax(titlePCData + "R31C15?alt=json").done(function() {
     var json = JSON.parse(eqipmri.responseText);
 
     var mristaf = (json.entry.gs$cell.$t);
