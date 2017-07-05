@@ -25,19 +25,22 @@ var queryPCLink = queryGlobalLink + computers + querySufix;
 var queryChangesLink = queryGlobalLink + changes + querySufix;
 //Global charts options
 var columnChartOptions = {
-    isStacked: true,
-    legend: {
+    isStacked: 'percent',
+    colors: ['#19BA55', '#4271B7', '#FFAE23', '#FF4923'],
+    'legend': {
         position: 'top',
         alignment: 'center',
         maxLines: 2
     },
-    colors: ['#19BA55', '#4271B7', '#FFAE23', '#FF4923'],
-    isStacked: 'percent',
+    vAxis: {
+        format: 'percent'
+    },
     hAxis: {
         slantedText: true,
         slantedTextAngle: 60
     },
-};
+}
+
 
 //Draw buildings table
 function getBuildingsTable() {
@@ -131,17 +134,7 @@ function getBuildingsAgeChart() {
         var colChart = new google.visualization.ChartWrapper({
             'chartType': 'ColumnChart',
             'containerId': 'buildings-age-chart',
-            'options': {
-                isStacked: 'percent',
-                'legend': {
-                    position: 'top',
-                    alignment: 'center',
-                    maxLines: 2
-                },
-                vAxis: {
-                    format: 'percent'
-                }
-            }
+            'options': columnChartOptions
         });
         dashboard.bind(control, colChart);
         dashboard.draw(data);
@@ -169,17 +162,7 @@ function getBuildingsTypeChart() {
         var colChart = new google.visualization.ChartWrapper({
             'chartType': 'ColumnChart',
             'containerId': 'buildings-type-chart',
-            'options': {
-                isStacked: 'percent',
-                'legend': {
-                    position: 'top',
-                    alignment: 'center',
-                    maxLines: 2
-                },
-                vAxis: {
-                    format: 'percent'
-                }
-            }
+            'options': columnChartOptions
         });
         dashboard.bind(control, colChart);
         dashboard.draw(data);
@@ -207,17 +190,7 @@ function getBuildingsStateChart() {
         var colChart = new google.visualization.ChartWrapper({
             'chartType': 'ColumnChart',
             'containerId': 'buildings-state-chart',
-            'options': {
-                isStacked: 'percent',
-                'legend': {
-                    position: 'top',
-                    alignment: 'center',
-                    maxLines: 2
-                },
-                vAxis: {
-                    format: 'percent'
-                }
-            }
+            'options': columnChartOptions
         });
         dashboard.bind(control, colChart);
         dashboard.draw(data);
