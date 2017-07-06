@@ -106,7 +106,7 @@ function getPCTable() {
 }
 
 function getChangesTable() {
-    let queryChangesData = 'SELECT B, C, D, E';
+    let queryChangesData = 'SELECT B, C, E LIMIT 28';
     let queryChangesString = encodeURIComponent(queryChangesData);
     let query = new google.visualization.Query(queryChangesLink + queryChangesString);
     query.send(drawChangesTable);
@@ -158,10 +158,10 @@ function getBuildingsTypeChart() {
         var dashboard = new google.visualization.Dashboard(document.getElementById('build-type'));
         // Create a range slider, passing some options
         var control = new google.visualization.ControlWrapper({
-            'controlType': 'CategoryFilter',
+            'controlType': 'NumberRangeFilter',
             'containerId': 'buildings-type-filter',
             'options': {
-                'filterColumnIndex': 0,
+                'filterColumnIndex': 1,
             }
         });
         // Create a chart, passing some options
@@ -186,10 +186,10 @@ function getBuildingsStateChart() {
         var dashboard = new google.visualization.Dashboard(document.getElementById('build-state'));
         // Create a range slider, passing some options
         var control = new google.visualization.ControlWrapper({
-            'controlType': 'CategoryFilter',
+            'controlType': 'NumberRangeFilter',
             'containerId': 'buildings-state-filter',
             'options': {
-                'filterColumnIndex': 0,
+                'filterColumnIndex': 3,
             }
         });
         // Create a chart, passing some options
@@ -204,114 +204,42 @@ function getBuildingsStateChart() {
 }
 
 // Draw  chart AVTO-1
-
 function drawAvto1() {
-    var queryStringA1 = encodeURIComponent('SELECT B, D, F LIMIT 29 OFFSET 0');
+    var queryString = encodeURIComponent('SELECT B, D, F LIMIT 29 OFFSET 0');
+    var query = new google.visualization.Query(queryCarsLink + queryString);
+    query.send(handleQueryResponse);
 
-    var queryA1 = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Транспорт&headers=1&tq=' + queryStringA1);
-    queryA1.send(handleQueryResponseA1);
-}
-
-function handleQueryResponseA1(response) {
-    if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
+    function handleQueryResponse(response) {
+        var data = response.getDataTable();
+        var chart = new google.visualization.ColumnChart(document.getElementById('auto-1'));
+        chart.draw(data, columnChartOptions);
     }
-
-    var optionsA1 = {
-
-        legend: {
-            position: 'top',
-            alignment: 'center',
-            maxLines: 2
-        },
-        colors: ['#19BA55', '#FF4923'],
-        isStacked: 'percent',
-        hAxis: {
-            slantedText: true,
-            slantedTextAngle: 60
-        },
-    };
-
-    var dataA1 = response.getDataTable();
-    var chartA1 = new google.visualization.ColumnChart(document.getElementById('auto-1'));
-    chartA1.draw(dataA1, optionsA1);
 }
-
 
 // Draw  chart AVTO-2
-
 function drawAvto2() {
-    var queryStringA2 = encodeURIComponent('SELECT B, H, J LIMIT 29 OFFSET 0');
+    var queryString = encodeURIComponent('SELECT B, H, J LIMIT 29 OFFSET 0');
+    var query = new google.visualization.Query(queryCarsLink + queryString);
+    query.send(handleQueryResponse);
 
-    var queryA2 = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Транспорт&headers=1&tq=' + queryStringA2);
-    queryA2.send(handleQueryResponseA2);
-}
-
-function handleQueryResponseA2(response) {
-    if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
+    function handleQueryResponse(response) {
+        var data = response.getDataTable();
+        var chart = new google.visualization.ColumnChart(document.getElementById('auto-2'));
+        chart.draw(data, columnChartOptions);
     }
-
-    var optionsA2 = {
-
-        legend: {
-            position: 'top',
-            alignment: 'center',
-            maxLines: 2
-        },
-        colors: ['#19BA55', '#FF4923'],
-        isStacked: 'percent',
-        hAxis: {
-            slantedText: true,
-            slantedTextAngle: 60
-        },
-    };
-
-    var dataA2 = response.getDataTable();
-    var chartA2 = new google.visualization.ColumnChart(document.getElementById('auto-2'));
-    chartA2.draw(dataA2, optionsA2);
 }
 
-// Draw  chart AVTO-3  MUST BE HERE!!!
+// Draw  chart AVTO-3
+function drawAvto3() {
+    var queryString = encodeURIComponent('SELECT B, L, N LIMIT 29 OFFSET 0');
+    var query = new google.visualization.Query(queryCarsLink + queryString);
+    query.send(handleQueryResponse);
 
-// Draw  chart AVTO-4
-
-function drawAvto4() {
-    var queryStringA4 = encodeURIComponent('SELECT B, L, N LIMIT 29 OFFSET 0');
-
-    var queryA4 = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Транспорт&headers=1&tq=' + queryStringA4);
-    queryA4.send(handleQueryResponseA4);
-}
-
-function handleQueryResponseA4(response) {
-    if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
+    function handleQueryResponse(response) {
+        var data = response.getDataTable();
+        var chart = new google.visualization.ColumnChart(document.getElementById('auto-3'));
+        chart.draw(data, columnChartOptions);
     }
-
-    var optionsA4 = {
-
-        legend: {
-            position: 'top',
-            alignment: 'center',
-            maxLines: 2
-        },
-        colors: ['#19BA55', '#FF4923'],
-        isStacked: 'percent',
-        hAxis: {
-            slantedText: true,
-            slantedTextAngle: 60
-        },
-    };
-
-    var dataA4 = response.getDataTable();
-    var chartA4 = new google.visualization.ColumnChart(document.getElementById('auto-4'));
-    chartA4.draw(dataA4, optionsA4);
 }
 
 // Draw  chart EQIP1

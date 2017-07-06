@@ -1,14 +1,18 @@
 //Redraw charts after resize
 
 $(window).resize(function() {
+
     getBuildingsAgeChart();
     getBuildingsStateChart();
     getBuildingsTypeChart();
+
     drawAvto1();
     drawAvto2();
-    drawAvto4();
+    drawAvto3();
+
     drawEqip1();
     drawEqip2();
+
     drawPC1();
     drawPC3();
 
