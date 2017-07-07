@@ -27,10 +27,11 @@ var queryEquipLink = queryGlobalLink + equipment + querySufix;
 var queryPCLink = queryGlobalLink + computers + querySufix;
 var queryChangesLink = queryGlobalLink + changes + querySufix;
 //Global charts options
+//Main columns charts options
 var columnChartOptions = {
     isStacked: 'percent',
     colors: ['#19BA55', '#4271B7', '#FFAE23', '#FF4923'],
-    'legend': {
+    legend: {
         position: 'top',
         alignment: 'center',
         maxLines: 2
@@ -42,11 +43,39 @@ var columnChartOptions = {
         slantedText: true,
         slantedTextAngle: 60
     },
-
     vAxis: {
         format: 'percent'
     }
 };
+//Two column chart options
+var twoColChartOptions = {
+    legend: {
+        position: 'top',
+        alignment: 'center',
+        maxLines: 2
+    },
+    colors: ['#19BA55', '#4271B7', '#FFAE23'],
+    hAxis: {
+        slantedText: true,
+        slantedTextAngle: 60
+    },
+};
+
+//Geo chart options
+var geoChartOptions = {
+    region: 'UA',
+    displayMode: 'markers',
+    sizeAxis: {
+        minValue: 0,
+        maxValue: 100
+    },
+    colorAxis: {
+        colors: ['#FF4923', '#19BA55']
+    },
+    backgroundColor: 'white',
+    datalessRegionColor: 'white',
+    defaultColor: '#f5f5f5',
+}
 
 //Draw buildings table
 function getBuildingsTable() {
@@ -61,7 +90,6 @@ function getBuildingsTable() {
         table.draw(data);
     }
 }
-
 
 //Draw cars table
 function getCarsTable() {
@@ -146,6 +174,7 @@ function getBuildingsAgeChart() {
         dashboard.draw(data);
     }
 }
+
 // Draw buildings TYPE chart
 function getBuildingsTypeChart() {
     let queryBuildingsData = 'SELECT B, E, G LIMIT 29 OFFSET 0';
@@ -174,6 +203,7 @@ function getBuildingsTypeChart() {
         dashboard.draw(data);
     }
 }
+
 // Draw buildings STATE chart
 function getBuildingsStateChart() {
     let queryBuildingsData = 'SELECT B, O, P, Q LIMIT 29 OFFSET 0';
@@ -243,100 +273,53 @@ function drawAvto3() {
 }
 
 // Draw  chart EQIP1
-
 function drawEqip1() {
-    var queryStringE1 = encodeURIComponent('SELECT B, C, D LIMIT 29 OFFSET 0');
+    var queryString = encodeURIComponent('SELECT B, C, D LIMIT 29 OFFSET 0');
+    var query = new google.visualization.Query(queryEquipLink + queryString);
+    query.send(handleQueryResponse);
 
-    var queryE1 = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Обладнання&headers=1&tq=' + queryStringE1);
-    queryE1.send(handleQueryResponseE1);
-}
-
-function handleQueryResponseE1(response) {
-    if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
+    function handleQueryResponse(response) {
+        var data = response.getDataTable();
+        var chart = new google.visualization.ColumnChart(document.getElementById('eqip-1'));
+        chart.draw(data, twoColChartOptions);
     }
-
-    var optionsE1 = {
-
-        legend: {
-            position: 'top',
-            alignment: 'center',
-            maxLines: 2
-        },
-        colors: ['#19BA55', '#4271B7'],
-        hAxis: {
-            slantedText: true,
-            slantedTextAngle: 60
-        },
-
-    };
-
-    var dataE1 = response.getDataTable();
-    var chartE1 = new google.visualization.ColumnChart(document.getElementById('eqip-1'));
-    chartE1.draw(dataE1, optionsE1);
 }
 
-
-// Draw  chart EQIP2 - MAP
-
-
+// Draw  chart EQIP2 - (Buble) MAP
 function drawEqip2() {
-    var queryStringE2 = encodeURIComponent('SELECT B, E LIMIT 28 OFFSET 0');
+    var queryString = encodeURIComponent('SELECT B, C, D, E, F LIMIT 28 OFFSET 0');
+    var query = new google.visualization.Query(queryEquipLink + queryString);
+    query.send(handleQueryResponse);
 
-    var queryE2 = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Обладнання&headers=1&tq=' + queryStringE2);
-    queryE2.send(handleQueryResponseE2);
-}
-
-function handleQueryResponseE2(response) {
-    if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
+    function handleQueryResponse(response) {
+        var data = response.getDataTable();
+        var chart = new google.visualization.BubbleChart(document.getElementById('eqip-2'));
+        chart.draw(data, geoChartOptions);
     }
-
-    var optionsE2 = {
-
-        region: 'UA',
-        displayMode: 'markers',
-        sizeAxis: {
-            minValue: 0,
-            maxValue: 100
-        },
-
-        colorAxis: {
-            colors: ['#FF4923', '#19BA55']
-        },
-        backgroundColor: 'white',
-        datalessRegionColor: 'white',
-        defaultColor: '#f5f5f5',
-    }
-
-    var dataE2 = response.getDataTable();
-    var chartE2 = new google.visualization.GeoChart(document.getElementById('eqip-2'));
-    chartE2.draw(dataE2, optionsE2);
 }
 
 // Draw  chart EQIP3
+function drawEqip3() {
+    var queryString = encodeURIComponent('SELECT B, I, J, L LIMIT 28 OFFSET 0');
+    var query = new google.visualization.Query(queryEquipLink + queryString);
+    query.send(handleQueryResponse);
 
+    function handleQueryResponse(response) {
+        var data = response.getDataTable();
+        var chart = new google.visualization.ColumnChart(document.getElementById('eqip-3'));
+        chart.draw(data, twoColChartOptions);
+    }
+}
 
 // Draw  chart PC1
-
 function drawPC1() {
     var queryStringPC1 = encodeURIComponent('SELECT B, C, D LIMIT 29 OFFSET 0');
-
     var queryPC1 = new google.visualization.Query(
         'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Компютери&headers=1&tq=' + queryStringPC1);
     queryPC1.send(handleQueryResponsePC1);
 }
 
 function handleQueryResponsePC1(response) {
-    if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
-    }
-
     var optionsPC1 = {
 
         legend: {
@@ -358,20 +341,13 @@ function handleQueryResponsePC1(response) {
 }
 
 //Draw chart PC2 - Placement
-
 function drawPC2() {
-
-    // Create our data table.
-
     var queryStringPC2 = encodeURIComponent('SELECT B, E, F, G LIMIT 29');
-
     var queryPC2 = new google.visualization.Query(
         'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Компютери&headers=1&tq=' + queryStringPC2);
     queryPC2.send(handleQueryResponsePC2);
 }
-
 function handleQueryResponsePC2(response) {
-
     var datapc2 = response.getDataTable();
     // Create a dashboard.
     var dashboard = new google.visualization.Dashboard(
@@ -390,7 +366,7 @@ function handleQueryResponsePC2(response) {
         'containerId': 'pc-2-chart',
         'options': {
             isStacked: 'percent',
-            'legend': 'right',
+            'legend': 'top',
             vAxis: {
                 format: 'percent'
 
@@ -400,14 +376,12 @@ function handleQueryResponsePC2(response) {
     });
 
     dashboard.bind(controlPC2, colChart);
-
     dashboard.draw(datapc2);
 }
 
 //Draw chart PC3 - Internet
-
 function drawPC3() {
-    var queryStringPC3 = encodeURIComponent('SELECT B, H LIMIT 29 OFFSET 0');
+    var queryStringPC3 = encodeURIComponent('SELECT B, L LIMIT 29 OFFSET 0');
 
     var queryPC3 = new google.visualization.Query(
         'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Компютери&headers=1&tq=' + queryStringPC3);
@@ -415,13 +389,8 @@ function drawPC3() {
 }
 
 function handleQueryResponsePC3(response) {
-    if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
-    }
 
     var optionsPC3 = {
-        title: "Кількість закладів підключених до мережі Інтернет",
         legend: {
             position: 'top',
             alignment: 'center',
@@ -441,59 +410,44 @@ function handleQueryResponsePC3(response) {
     chartPC3.draw(dataPC3, optionsPC3);
 }
 
-
-
-
 // Buildings title dinamic values //
 
 var buildtotal = $.ajax(titleBuildingsData + 'R31C3?alt=json').done(function() {
     var json = JSON.parse(buildtotal.responseText);
     var text = (json.entry.gs$cell.$t);
     document.getElementById("b-total").innerHTML = text;
-
 });
 
 var buildcritical = $.ajax(titleBuildingsData + 'R31C17?alt=json').done(function() {
     var json = JSON.parse(buildcritical.responseText);
     var text = (json.entry.gs$cell.$t);
     document.getElementById("b-critical").innerHTML = text;
-
 });
 
 // Automobiles title dinamic values //
-
 var autototal = $.ajax(titleCarsData + 'R31C3?alt=json').done(function() {
     var json = JSON.parse(autototal.responseText);
-
-    var atotal = (json.entry.gs$cell.$t);
-    document.getElementById("a-total").innerHTML = atotal;
-
+    var text = (json.entry.gs$cell.$t);
+    document.getElementById("a-total").innerHTML = text;
 });
 
 var autostaf = $.ajax(titleCarsData + "R31C7?alt=json").done(function() {
     var json = JSON.parse(autostaf.responseText);
-
-    var astaf = (json.entry.gs$cell.$t);
-    document.getElementById("a-staf").innerHTML = astaf;
-
+    var text = (json.entry.gs$cell.$t);
+    document.getElementById("a-staf").innerHTML = text;
 });
 
 // PC title dinamic values //
-
 var pctotal = $.ajax(titleEquipData + "R31C3?alt=json").done(function() {
     var json = JSON.parse(pctotal.responseText);
-
-    var ptotal = (json.entry.gs$cell.$t);
-    document.getElementById("p-total").innerHTML = ptotal;
-
+    var text = (json.entry.gs$cell.$t);
+    document.getElementById("p-total").innerHTML = text;
 });
 
 var pcstaf = $.ajax(titleEquipData + "R31C4?alt=json").done(function() {
     var json = JSON.parse(pcstaf.responseText);
-
-    var pstaf = (json.entry.gs$cell.$t);
-    document.getElementById("p-staf").innerHTML = pstaf;
-
+    var text = (json.entry.gs$cell.$t);
+    document.getElementById("p-staf").innerHTML = text;
 });
 
 
@@ -501,16 +455,12 @@ var pcstaf = $.ajax(titleEquipData + "R31C4?alt=json").done(function() {
 
 var eqiptotal = $.ajax(titlePCData + "R31C4?alt=json").done(function() {
     var json = JSON.parse(eqiptotal.responseText);
-
-    var etotal = (json.entry.gs$cell.$t);
-    document.getElementById("e-total").innerHTML = etotal + "%";
-
+    var text = (json.entry.gs$cell.$t);
+    document.getElementById("e-total").innerHTML = text + "%";
 });
 
 var eqipmri = $.ajax(titlePCData + "R31C15?alt=json").done(function() {
     var json = JSON.parse(eqipmri.responseText);
-
-    var mristaf = (json.entry.gs$cell.$t);
-    document.getElementById("mri-staf").innerHTML = mristaf;
-
+    var text = (json.entry.gs$cell.$t);
+    document.getElementById("mri-staf").innerHTML = text;
 });
