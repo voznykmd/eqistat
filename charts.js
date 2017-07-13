@@ -133,6 +133,7 @@ function getPCTable() {
     }
 }
 
+//Draw Changes table (bootom of page)
 function getChangesTable() {
     let queryChangesData = 'SELECT B, C, E LIMIT 28';
     let queryChangesString = encodeURIComponent(queryChangesData);
@@ -325,31 +326,18 @@ function drawPC1() {
 }
 
 //Draw chart PC2 - Placement
+
+
 function drawPC2() {
-    var queryString = encodeURIComponent('SELECT B, E, F, G LIMIT 29');
+    var queryString = encodeURIComponent('SELECT B, E, F, G LIMIT 29 OFFSET 0');
     var query = new google.visualization.Query(queryPCLink + queryString);
     query.send(handleQueryResponse);
-}
-function handleQueryResponse(response) {
-    var data = response.getDataTable();
-    var dashboard = new google.visualization.Dashboard(
-        document.getElementById('pc-2'));
-    // Create a range slider, passing some options
-    var control = new google.visualization.ControlWrapper({
-        'controlType': 'NumberRangeFilter',
-        'containerId': 'pc-2-filter',
-        'options': {
-            'filterColumnIndex': 2,
-        }
-    });
-    // Create a chart, passing some options
-    var colChart = new google.visualization.ChartWrapper({
-        'chartType': 'SteppedAreaChart',
-        'containerId': 'pc-2-chart',
-        'options': columnChartOptions
-    });
-    dashboard.bind(control, colChart);
-    dashboard.draw(data);
+
+    function handleQueryResponse(response) {
+        var data = response.getDataTable();
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('pc-2'));
+        chart.draw(data, columnChartOptions);
+    }
 }
 
 //Draw chart PC3 - Internet
