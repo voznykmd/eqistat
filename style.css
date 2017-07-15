@@ -10,6 +10,29 @@ body {
     flex: 1;
 }
 
+:root {
+  --red: #fa424a;
+  --purple: #ac6bec;
+  --orange: #fdad2a;
+  --green: #46c35f;
+}
+
+.red {
+      background-color: var(--red);
+}
+
+.purple {
+      background-color: var(--purple);
+}
+
+.orange {
+      background-color: var(--orange);
+}
+
+.green {
+      background-color: var(--green);
+}
+
 .btn {
     font-size: 12px!important;
 }
@@ -38,19 +61,11 @@ hr {
     margin-bottom: 0;
 }
 
-.chart-1 {
-    background-color: #fa424a;
-}
-
 .total-build {
     border: 0;
     -webkit-box-shadow: 0px 0px 48px 6px rgba(250, 66, 74, 0.64);
     -moz-box-shadow: 0px 0px 48px 6px rgba(250, 66, 74, 0.64);
     box-shadow: 0px 0px 48px 6px rgba(250, 66, 74, 0.64);
-}
-
-.chart-2 {
-    background-color: #ac6bec;
 }
 
 .total-avto {
@@ -60,19 +75,11 @@ hr {
     box-shadow: 0px 0px 48px 6px rgba(172, 107, 236, 1);
 }
 
-.chart-3 {
-    background-color: #fdad2a;
-}
-
 .total-eqip {
     border: 0;
     -webkit-box-shadow: 0px 0px 48px 6px rgba(253, 173, 42, 1);
     -moz-box-shadow: 0px 0px 48px 6px rgba(253, 173, 42, 1);
     box-shadow: 0px 0px 48px 6px rgba(253, 173, 42, 1);
-}
-
-.chart-4 {
-    background-color: #46c35f;
 }
 
 .total-pc {
@@ -82,10 +89,7 @@ hr {
     box-shadow: 0px 0px 48px 6px rgba(70, 195, 95, 1);
 }
 
-.chart-1,
-.chart-2,
-.chart-3,
-.chart-4 {
+.title {
     padding: 0;
     padding-top: 30px;
     color: #ffffff;
