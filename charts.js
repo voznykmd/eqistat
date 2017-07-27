@@ -133,6 +133,7 @@ function getPCTable() {
     }
 }
 
+//Draw Changes table (bootom of page)
 function getChangesTable() {
     let queryChangesData = 'SELECT B, C, E LIMIT 28';
     let queryChangesString = encodeURIComponent(queryChangesData);
@@ -313,78 +314,36 @@ function drawEqip3() {
 
 // Draw  chart PC1
 function drawPC1() {
-    var queryStringPC1 = encodeURIComponent('SELECT B, C, D LIMIT 29 OFFSET 0');
-    var queryPC1 = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Компютери&headers=1&tq=' + queryStringPC1);
-    queryPC1.send(handleQueryResponsePC1);
-}
+    var queryString = encodeURIComponent('SELECT B, C, D LIMIT 29 OFFSET 0');
+    var query = new google.visualization.Query(queryPCLink + queryString);
+    query.send(handleQueryResponse);
 
-function handleQueryResponsePC1(response) {
-    var optionsPC1 = {
-
-        legend: {
-            position: 'top',
-            alignment: 'center',
-            maxLines: 2
-        },
-        colors: ['#19BA55', '#FF4923'],
-        isStacked: 'percent',
-        hAxis: {
-            slantedText: true,
-            slantedTextAngle: 60
-        },
-    };
-
-    var dataPC1 = response.getDataTable();
-    var chartPC1 = new google.visualization.SteppedAreaChart(document.getElementById('pc-1'));
-    chartPC1.draw(dataPC1, optionsPC1);
+    function handleQueryResponse(response) {
+        var data = response.getDataTable();
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('pc-1'));
+        chart.draw(data, columnChartOptions);
+    }
 }
 
 //Draw chart PC2 - Placement
+
+
 function drawPC2() {
-    var queryStringPC2 = encodeURIComponent('SELECT B, E, F, G LIMIT 29');
-    var queryPC2 = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Компютери&headers=1&tq=' + queryStringPC2);
-    queryPC2.send(handleQueryResponsePC2);
-}
-function handleQueryResponsePC2(response) {
-    var datapc2 = response.getDataTable();
-    // Create a dashboard.
-    var dashboard = new google.visualization.Dashboard(
-        document.getElementById('pc-2'));
-    // Create a range slider, passing some options
-    var controlPC2 = new google.visualization.ControlWrapper({
-        'controlType': 'CategoryFilter',
-        'containerId': 'pc-2-filter',
-        'options': {
-            'filterColumnIndex': 0,
-        }
-    });
-    // Create a chart, passing some options
-    var colChart = new google.visualization.ChartWrapper({
-        'chartType': 'SteppedAreaChart',
-        'containerId': 'pc-2-chart',
-        'options': {
-            isStacked: 'percent',
-            'legend': 'top',
-            vAxis: {
-                format: 'percent'
+    var queryString = encodeURIComponent('SELECT B, E, F, G LIMIT 29 OFFSET 0');
+    var query = new google.visualization.Query(queryPCLink + queryString);
+    query.send(handleQueryResponse);
 
-            }
-        }
-
-    });
-
-    dashboard.bind(controlPC2, colChart);
-    dashboard.draw(datapc2);
+    function handleQueryResponse(response) {
+        var data = response.getDataTable();
+        var chart = new google.visualization.SteppedAreaChart(document.getElementById('pc-2'));
+        chart.draw(data, columnChartOptions);
+    }
 }
 
 //Draw chart PC3 - Internet
 function drawPC3() {
     var queryStringPC3 = encodeURIComponent('SELECT B, L LIMIT 29 OFFSET 0');
-
-    var queryPC3 = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/1ikWRxH9wsnj9qpVPCRTMOFnS4fCiHfYRIuIbeDZdgNI/gviz/tq?sheet=Компютери&headers=1&tq=' + queryStringPC3);
+    var queryPC3 = new google.visualization.Query(queryPCLink + queryStringPC3);
     queryPC3.send(handleQueryResponsePC3);
 }
 
@@ -403,10 +362,13 @@ function handleQueryResponsePC3(response) {
             slantedText: true,
             slantedTextAngle: 60
         },
+        vAxis: {
+            format: 'percent'
+        }
     };
 
     var dataPC3 = response.getDataTable();
-    var chartPC3 = new google.visualization.BarChart(document.getElementById('pc-3'));
+    var chartPC3 = new google.visualization.SteppedAreaChart(document.getElementById('pc-3'));
     chartPC3.draw(dataPC3, optionsPC3);
 }
 
@@ -452,7 +414,6 @@ var pcstaf = $.ajax(titleEquipData + "R31C4?alt=json").done(function() {
 
 
 // Medeqipment title dinamic values //
-
 var eqiptotal = $.ajax(titlePCData + "R31C4?alt=json").done(function() {
     var json = JSON.parse(eqiptotal.responseText);
     var text = (json.entry.gs$cell.$t);

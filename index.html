@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Jura|Poiret+One" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -61,7 +61,7 @@
             <div class="container pt-2">
                 <!--  Color cards  -->
                 <div class="row text-center color-cards">
-                    <div class="col-6 col-md-3 col-sm-3 chart-1">
+                    <div class="col-6 col-md-3 col-sm-3 red title">
                         <h2 id="b-total"></h2>
                         <h3>Будівлі</h3>
                         <hr>
@@ -72,7 +72,7 @@
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-build">
                                     <div class="modal-header">
-                                        <h5 class="modal-title m-name">Будівлі медичних закладів області</h5>
+                                        <h5 class="modal-title ">Будівлі медичних закладів області</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-3 col-sm-3 chart-2">
+                    <div class="col-6 col-md-3 col-sm-3 purple title">
                         <h2 id="a-total"></h2>
                         <h3>Авто</h3>
                         <hr>
@@ -96,7 +96,7 @@
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-avto">
                                     <div class="modal-header">
-                                        <h5 class="modal-title m-name">Транспорт медичних закладів області</h5>
+                                        <h5 class="modal-title ">Транспорт медичних закладів області</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-3 col-sm-3 chart-3">
+                    <div class="col-6 col-md-3 col-sm-3 orange title">
                         <h2 id="mri-staf"></h2>
                         <h3>Обладнання</h3>
                         <hr>
@@ -118,7 +118,7 @@
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-eqip">
                                     <div class="modal-header">
-                                        <h5 class="modal-title m-name">Медичне обладнання закладів області</h5>
+                                        <h5 class="modal-title ">Медичне обладнання закладів області</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
@@ -129,7 +129,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-md-3 col-sm-3 chart-4">
+                    <div class="col-6 col-md-3 col-sm-3 green title">
                         <h2 id="p-total"></h2>
                         <h3>Комп'ютери</h3>
                         <hr>
@@ -140,7 +140,7 @@
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content total-pc">
                                     <div class="modal-header">
-                                        <h5 class="modal-title m-name">Комп'ютери медичних закладів області</h5>
+                                        <h5 class="modal-title ">Комп'ютери медичних закладів області</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
@@ -156,7 +156,7 @@
 
             <!--Diagrams slider-->
             <!-- General slider menu-->
-            <div class="container-fluid mini-container py-5">
+            <div class="container-fluid pt-10 py-5">
                 <div class="row text-center pb-2 ">
                     <div class="col-12 pb-5">
                         <h4>Інтерактивні діаграми для оцінки оснащеності</h4>
@@ -271,13 +271,8 @@
                         <!-- Tab portfolio panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="pc-1" role="tabpanel"></div>
-                            <div class="tab-pane" id="pc-2" role="tabpanel">
-                                <div id="pc-2-filter"></div>
-                                <div id="pc-2-chart" class="chart-container"></div>
-                            </div>
+                            <div class="tab-pane" id="pc-2" role="tabpanel"></div>
                             <div class="tab-pane" id="pc-3" role="tabpanel"></div>
-
-
                         </div>
                         <!--Four slide navigation-->
                         <ul class="nav nav-pills justify-content-center text-center pb-2">
