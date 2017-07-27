@@ -11,26 +11,26 @@ body {
 }
 
 :root {
-  --red: #fa424a;
-  --purple: #ac6bec;
-  --orange: #fdad2a;
-  --green: #46c35f;
+    --red: #fa424a;
+    --purple: #ac6bec;
+    --orange: #fdad2a;
+    --green: #46c35f;
 }
 
 .red {
-      background-color: var(--red);
+    background-color: var(--red);
 }
 
 .purple {
-      background-color: var(--purple);
+    background-color: var(--purple);
 }
 
 .orange {
-      background-color: var(--orange);
+    background-color: var(--orange);
 }
 
 .green {
-      background-color: var(--green);
+    background-color: var(--green);
 }
 
 .btn {
@@ -42,10 +42,12 @@ body {
 }
 
 .changes-container {
-background: #f9f9f9;
+    background: #f9f9f9;
 }
 
+
 /*TITLES*/
+
 .triangle {
     width: 0;
     height: 0;
@@ -123,9 +125,11 @@ label.google-visualization-controls-label {
     color: #7f8181;
 }
 
+
 /*MAP*/
 
-#map {
+#map,
+#map-o {
     border: none;
     width: 100%;
     height: calc(100vh - 55px);
@@ -137,18 +141,22 @@ label.google-visualization-controls-label {
     padding-right: 0;
 }
 
+
 /*FOOTER*/
 
 footer {
     background-color: #4d6a79;
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, .5);
 }
 
-.navbar.navbar-light.grey,footer {
+.navbar.navbar-light.grey,
+footer {
     background-color: #4d6a79;
 }
 
+
 /*UNDER UPDATING*/
+
 
 /*.overlay {
     height: 100%;
