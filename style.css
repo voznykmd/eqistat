@@ -126,6 +126,29 @@ label.google-visualization-controls-label {
 }
 
 
+/*Google slider*/
+
+.google-visualization-controls-slider-horizontal {
+    height: 4px!important;
+    border: none!important;
+}
+.google-visualization-controls-slider-horizontal:focus {
+    outline: none;
+  }
+
+.google-visualization-controls-slider-handle {
+    height: 1px!important;
+}
+.google-visualization-controls-slider-thumb {
+    border-radius: 50%!important;
+    top: -8px!important;
+    background-color: #a7a7a7!important;
+    border-color: white!important;
+}
+.google-visualization-controls-rangefilter-thumblabel {
+    color: grey!important;
+}
+
 /*MAP*/
 
 #map,
