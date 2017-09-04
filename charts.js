@@ -288,13 +288,13 @@ function drawEqip1() {
 
 // Draw  chart EQIP2 - (Buble) MAP
 function drawEqip2() {
-    var queryString = encodeURIComponent('SELECT B, C, D, E, F LIMIT 28 OFFSET 0');
+    var queryString = encodeURIComponent('SELECT B, E, F LIMIT 28 OFFSET 0');
     var query = new google.visualization.Query(queryEquipLink + queryString);
     query.send(handleQueryResponse);
 
     function handleQueryResponse(response) {
         var data = response.getDataTable();
-        var chart = new google.visualization.BubbleChart(document.getElementById('eqip-2'));
+        var chart = new google.visualization.GeoChart(document.getElementById('eqip-2'));
         chart.draw(data, geoChartOptions);
     }
 }
