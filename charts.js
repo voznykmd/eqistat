@@ -422,6 +422,5 @@ var eqiptotal = $.ajax(titlePCData + "R31C4?alt=json").done(function() {
 
 var eqipmri = $.ajax(titlePCData + "R31C15?alt=json").done(function() {
     var json = JSON.parse(eqipmri.responseText);
-    var text = (json.entry.gs$cell.$t);
-    document.getElementById("mri-staf").innerHTML = text;
+    document.getElementById("mri-staf").innerHTML = json.entry.gs$cell.$t;
 });
