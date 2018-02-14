@@ -1,0 +1,122 @@
+<html lang="uk">
+
+<head>
+    <title>EqiStat</title>
+
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Jura|Poiret+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!--  Start MAIN section  -->
+    <main>
+        <section>
+            <nav class="navbar navbar-toggleable-md navbar-light grey navbar-inverse">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+                    aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="imgs/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> EqiStat
+                </a>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="index.html" id="navEqip" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Оснащеність
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navEqip">
+                              <a class="dropdown-item" href="#">Первинна ланка</a>
+                              <a class="dropdown-item" href="#">Вторинна ланка</a>
+                              <a class="dropdown-item" href="#">Третинна ланка</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="index.html" id="navMap" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Мапи
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navMap">
+                              <a class="dropdown-item" href="map.html">Мапа мережі</a>
+                              <a class="dropdown-item" href="map-o.html">Мапа округів</a>
+                              <a class="dropdown-item" href="map-p.html">Мапа первинки</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <span class="navbar-text">
+        Моніторинг оснащеності медичних закладів
+      </span>
+                </div>
+            </nav>
+
+
+        </section>
+
+
+        <section>
+            <div class="container-fluid">
+                <div class="row text-center">
+                    <div class="col-12 gmap">
+                        <!--onclick="document.getElementById('map').style.pointerEvents= 'auto'"-->
+                        <iframe class="map" id="map-o" src="https://www.google.com/maps/d/u/0/embed?mid=1JMtSXsVUEB33MQ-hasvB_j4Z1tRqYRQ6"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--  <footer class=" pt-3">
+
+
+            <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse" id="footer">
+
+                <div class="col-6">
+                    <a class="navbar-brand" href="#">
+                        <img src="imgs/logo.svg" width="30" height="30" class="d-inline-block align-top" alt=""> EqiStat
+                    </a>
+                </div>
+
+                <div class="col-6 text-right">
+                    <span class="navbar-text">
+      Остання перевірка актуальності 20.03.2017р.
+    </span>
+                </div>
+
+            </nav>
+
+
+        </footer>-->
+
+
+
+    </main>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+</body>
+
+</html>
